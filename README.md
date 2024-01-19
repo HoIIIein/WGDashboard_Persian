@@ -153,31 +153,46 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 <div align="right">
   <details>
     <summary><strong>توضیحات آموزش</strong></summary>
-  ------------------------------------ 
- - سرور را اپدیت کنید و وایرگارد را نصب کنید.
 
+ - سرور را اپدیت کنید و وایرگارد را نصب کنید.
+<div align="left">
+ 
 ```
 apt update -y
 apt install wireguard -y
 ```
-- پرایوت کی بسازید و در یک جا یادداشتش کنید . با دستور زیر میتوانید بسازید
-  
+<div align="right">
+ 
+ - پرایوت کی بسازید و در یک جا یادداشتش کنید . با دستور زیر میتوانید بسازید
+ 
+ 
+<div align="left">
+ 
 ```
 wg genkey | sudo tee /etc/wireguard/server_private.key
 ```
-- و با دستور زیر میتوانید کلیدی که ساختید را مشاهده کنید
-
+<div align="right">
+ 
+ - و با دستور زیر میتوانید کلیدی که ساختید را مشاهده کنید
+<div align="left">
+ 
 ```
 cat /etc/wireguard/server_private.key
 ```
+<div align="right">
 
 
 - با دستور زیر وارد مسیر کانفیگ وایرگارد بشوید. [مسیر پیش فرض است]
+<div align="left">
+ 
 ```
 nano /etc/wireguard/wg0.conf
 ```
+<div align="right">
 
 - داخلش متن زیر را کپی کنید
+<div align="left">
+  
 ```
 [Interface]
 Address = 10.66.66.1/24, fd42:42:42::1/64
@@ -197,6 +212,7 @@ ListenPort = 50820
 PrivateKey = YOUR_GENERATED_PRIVATE_KEY
 SaveConfig = true
 ```
+<div align="right">
 
 - میتوانید از ایپی های دیگری استفاده کنید.
 - پورت وایرگارد در اینجا 50820 است . میتوانید پورت دیگری انتخاب کنید.
@@ -206,28 +222,32 @@ SaveConfig = true
 - به صورت پیش فرض Peer Remote Endpoint بر روی یک عدد بی ربط است. حتما از داخل تنظیمات این مقدار را به ایپی 4 خارج یا سرور ایران در صورت تانل تغییر بدهید.
 - در پنل وایرگارد داخل  ایپی کاربر وایرگارد، برای کاربر بر اساس ایپی انتخابی بالا ، از 10.66.66.2/32, fd42:42:42::2/128 و برای کاربر دوم از 10.66.66.3/32, fd42:42:42::3/128 استفاده میکنید.
  - پس از اینکه فایل را از گیت هاب در سیستم عامل خودتون دانلود کردید با دستورات زیر پیش نیازها را نصب کنید و پنل را اجرا کنید
-
+<div align="left">
+ 
 ```
-$ apt update
-$ apt install git
-$ git clone https://github.com/Azumi67/WGDashboard_Persian.git
-$ cd WGDashboard_Persian
-$ mv WireguardPersian /root/
-$ cd
-$ rm -rf WGDashboard_Persian
-$ apt-get -y install python3-pip
-$ apt install gunicorn -y
-$ cd WireguardPersian/src
-$ sudo chmod u+x wgd.sh
-$ pip install -r requirements.txt
-$ sudo ./wgd.sh install
-$ sudo chmod -R 755 /etc/wireguard
-$ ./wgd.sh start or ./wgd.sh restart
+apt update
+apt install git
+git clone https://github.com/Azumi67/WGDashboard_Persian.git
+cd WGDashboard_Persian
+mv WireguardPersian /root/
+cd
+rm -rf WGDashboard_Persian
+apt-get -y install python3-pip
+apt install gunicorn -y
+cd WireguardPersian/src
+sudo chmod u+x wgd.sh
+pip install -r requirements.txt
+sudo ./wgd.sh install
+sudo chmod -R 755 /etc/wireguard
+./wgd.sh start or ./wgd.sh restart
 ```
+<div align="right">
 
 - به پنل خودتون با [serverip:8080] وارد شوید. نام کاربری و رمز عبور پنل به صورت پیش فرض admin میباشد.
 - دقت کنید که داخل تنظیمات Remote endpoint را به ایپی سرور ایران در صورت تانل تغییر بدهید.
 - اگر به مشکل internal error در زمان لود پنل خوردید، سرور را یک بار ریبوت کنید و سپس دستور زیر را دوباره بزنید
+<div align="left">
+ 
 ```
 $ cd WireguardPersian/src
 $ ./wgd.sh restart
@@ -245,13 +265,18 @@ $ ./wgd.sh restart
 ------------------------------------ 
 
 
+
 - با دستور زیر یک سرویس درست کنید
 - **اگر به هر دلیلی ساخت سرویس باعث شد که پنل شما دچار قطعی و وصلی شود، سرویس خود را در هنگام بروز این مشکل مشاهده کنید و در قسمت issues بفرستید که در صورت نیاز ار روشی دیگر برای اینکار استفاده شود**
-
+<div align="left">
+ 
 ```
-$ nano /etc/systemd/system/azumidash.service
+nano /etc/systemd/system/azumidash.service
 ```
+<div align="right">
 - و محتویات پایین را داخل این سرویس کپی نمایید.
+<div align="left">
+ 
 ```
 [Unit]
 After=network.service
@@ -265,14 +290,17 @@ RestartSec=10
 [Install]
 WantedBy=default.target
 ```
+<div align="right">
 
 - با دستورات زیر سرویس را فعال و اجرا نمایید
+<div align="left">
+ 
 ```
-$ sudo chmod 664 /etc/systemd/system/azumidash.service
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable azumidash.service
-$ sudo systemctl start azumidash.service
-$ sudo systemctl status azumidash.service
+sudo chmod 664 /etc/systemd/system/azumidash.service
+sudo systemctl daemon-reload
+sudo systemctl enable azumidash.service
+sudo systemctl start azumidash.service
+sudo systemctl status azumidash.service
 ```
 
   </details>
