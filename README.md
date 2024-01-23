@@ -6,7 +6,7 @@
 -----------
 ![Exclamation-Mark-PNG-Clipart](https://github.com/Azumi67/WGDashboard_Persian/assets/119934376/b069a886-5cf2-4093-83e0-8474376368aa)**نکته ای بسیار مهم در مورد این پروژه**
 
-- **کدهای اصلی (حجم و زمان) این پنل برای اقا امیر میباشد و توسط من تا جای ممکن تغییر داده شده است**
+- **کدهای اصلی (حجم و زمان) این پنل برای اقا امیر میباشد و کد ها توسط من تا جای ممکن تغییر داده شده است**
 - **اگر پنل حرفه ای با اپدیت های متوالی میخواهید، حتما به ایشون پیام بدید . ایدی تلگرام ایشون : https://t.me/flalo  و ادرس ترون ایشون : TNxMRj6Q1wfFrZAJ7xwsjrwpiFyFpthvYd**
 - لطفا از ایشان حمایت کنید.
 
@@ -17,7 +17,7 @@
 - Inspired By Mr Amir Coding : [AMIR](https://t.me/flalo )
 - Persian HTML V2 Author : [Armin](https://github.com/A3is)
 - Script & Bug fixes : [Opiran](https://github.com/opiran-club)
-- Codes Edited & Modified By me & Bug fixes : [Azumi](https://github.com/Azumi67)
+- Codes Edited & Modified By me & original persianized & Bug fixes : [Azumi](https://github.com/Azumi67)
 - **I really appreciate Mr Amir who allowed me to be inspired by his coding, Opiran for his support and advice and Mr Armin for his beautiful work. Thank you**
 -----------------
 ![check](https://github.com/Azumi67/PrivateIP-Tunnel/assets/119934376/13de8d36-dcfe-498b-9d99-440049c0cf14)
@@ -31,13 +31,14 @@
 - تغییر کد های اقا امیر تا جای ممکن
 - اضافه شدن کد های نمایش CPU و RAM
 - امکان حذف peer های از کار افتاده بدون فعال کردن مجدد آن ها
-- بهینه تر شدن نسخه فارسی
+- بهینه تر شدن نسخه فارسی v2
 - اضافه شدن نسخه جدید فارسی توسط اقا ارمین
 
 -------------------
  <div align="right">
   <details>
-    <summary><strong><img src="https://github.com/Azumi67/WGDashboard_Persian/assets/119934376/c1153f92-93bc-42f5-a8b7-c4a1c70209ab" alt="Image"> </strong>نکته</summary>
+    <summary><strong><img src="https://github.com/Azumi67/WGDashboard_Persian/assets/119934376/c1153f92-93bc-42f5-a8b7-c4a1c70209ab" alt="Image"> </strong>نکات 
+ مهم در صورت ناموفق بودن نصب پنل یا تانل</summary>
   
   
 ------------------------------------ 
@@ -46,6 +47,13 @@
 - اگر به هر دلیلی کانکشن برای شما فعال نشد، ایپی وایرگارد در wg0 و در پنل را بررسی کنید. در wg0 باید 10.66.66.1/24 به طور مثال باشد و در پنل باید 10.66.66.2/32 باشد.
 - اگر با یک تانل جواب نگرفتید ، تانل دیگری را تست کنید.
 - اگر در دیجیتال اوشن جواب نگرفتید، از ایپی رنج دیگری استفاده کنید یا پرایوت ایپی را در دیجیتال اوشن disable کنید. داخل اینترنت سرچ کنید
+- ایپی وایرگارد در اینترفیس را به 176.66.66.1/24 تغییر دهید .ایپی کاربر وایرگارد هم که 176.66.66.2/32 خواهد بود. پورت های مختلفی را برای وایرگارد تست کنید به طور مثال 20820
+- از optimizer اقای هاشمی یا اپیران قبل از نصب پنل با تانل استفاده کنید.
+- اگر تانل udp2raw برای شما جواب نداد میتوانید از تانل های دیگر مانند frp kcp udp یا rathole یا chisel هم استفاده نمایید. اگر ایپی 4 شما مشکل دار است میتوانید از 6to4 یا ایپی 6 استفاده نمایید.
+- اگر از optimizer اقای هاشمی استفاده میکنید حتما فایروال را بررسی کنید چون فعال میشه و پورت تانل داخلش نخواهد بود .
+- اگر میخواهید ازavailable iP b در پنل استفاده کنید ، ایپی 6 وایرگارد را پاک نمایید.
+- بعضی ها هم از نام اینترفیس اشتباه استفاده میکردن. به طور مثال ممکنه برای شما eth0 یا ens باشد که در هتزنر eth میباشد.
+- من درنصب و تانل این پنل به افراد زیادی کمک کردم و از عملکرد آن اطمینان دارم.
 
   </details>
 </div>
@@ -82,7 +90,6 @@
   
   
 ------------------------------------ 
-!! UPDATED !!
 - زحمت این اسکریپت را [Opiran](https://github.com/opiran-club) کشیده اند.
 - اگر با اسکریپت نتوانستید نصب کنید ، به صورت دستی نصب نمایید.
 - شما میتوانید از طریق اسکریپت، این پنل را نصب کنید
@@ -134,12 +141,22 @@ sudo apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/Azu
  - میتوانید از اسکریپت اقای [Hwashemi](https://github.com/hawshemi/Linux-Optimizer) و یا [OPIRAN](https://github.com/opiran-club/VPS-Optimizer) هم برای بهینه سازی سرور در صورت تمایل استفاده نمایید. 
 
 
-----------------------------
+------------------------------------   
+
  <div align="right">
   <details>
-    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/ae5b07b8-4d5e-4302-a31f-dec2a79a76b5" alt="Image"> ویدیو آموزشی</strong></summary>
+    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/ae5b07b8-4d5e-4302-a31f-dec2a79a76b5" alt="Image"> ویدیوهای آموزشی</strong></summary>
+   
 ------------------------------------   
-  
+   
+- **ویدیوی آموزشی توسط 69**
+
+<div align="right">
+  <a href="https://www.youtube.com/watch?v=UlClsH6ywUY">
+    <img src="https://img.youtube.com/vi/UlClsH6ywUY/0.jpg" alt="Video Title" width="300">
+  </a>
+</div>
+   
 - **ویدیوی آموزشی توسط اپیران**
 <div align="right">
   <a href="https://youtu.be/o1eSsbbphAg?si=S60xxVsZRg89cp34">
