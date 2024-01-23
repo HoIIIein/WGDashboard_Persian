@@ -106,7 +106,7 @@ bash <(curl -s https://raw.githubusercontent.com/Azumi67/WGDashboard_Persian/mai
   
 ------------------------------------ 
 
-- شما میتوانید از طریق اسکریپت، این تانل را برقرار کنید
+- شما میتوانید از طریق اسکریپت، این تانل را برقرار کنید . تانل های مختلف را تست کنید 
 - میتوانید حتی بدون FEC هم تانل را برقرار کنید اگر سرعت مناسبی دریافت نکردید.
 - این اسکریپت با زبان گو نوشته شده است و این اسکریپت پیش نیاز های go را دانلود میکند و سپس اقدام به اجرای آن میکند
 - برای یادگیری این تانل به لینک روبرو مراجه کنید . [Here](https://github.com/Azumi67/UDP2RAW_FEC)
@@ -118,6 +118,10 @@ sudo apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/Azu
 bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wire.sh --ipv4)
 ```
 
+- یا تانل از طریق Rathole. لینک : [Here](https://github.com/Azumi67/Rathole_reverseTunnel)
+```
+sudo apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/Azumi67/Rathole_reverseTunnel/main/go2.sh)
+```
   </details>
 </div>
 
@@ -195,32 +199,32 @@ nano /etc/wireguard/wg0.conf
   
 ```
 [Interface]
-Address = 10.66.66.1/24, fd42:42:42::1/64
-PostUp = iptables -I INPUT -p udp --dport 50820 -j ACCEPT
+Address = 176.66.66.1/24
+PostUp = iptables -I INPUT -p udp --dport 20820 -j ACCEPT
 PostUp = iptables -I FORWARD -i eth0 -o wg0 -j ACCEPT
 PostUp = iptables -I FORWARD -i wg0 -j ACCEPT
 PostUp = iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 PostUp = ip6tables -I FORWARD -i wg0 -j ACCEPT
 PostUp = ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-PostDown = iptables -D INPUT -p udp --dport 50820 -j ACCEPT
+PostDown = iptables -D INPUT -p udp --dport 20820 -j ACCEPT
 PostDown = iptables -D FORWARD -i eth0 -o wg0 -j ACCEPT
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT
 PostDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 PostDown = ip6tables -D FORWARD -i wg0 -j ACCEPT
 PostDown = ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
-ListenPort = 50820
+ListenPort = 20820
 PrivateKey = YOUR_GENERATED_PRIVATE_KEY
 SaveConfig = true
 ```
 <div align="right">
 
 - میتوانید از ایپی های دیگری استفاده کنید.
-- پورت وایرگارد در اینجا 50820 است . میتوانید پورت دیگری انتخاب کنید.
+- پورت وایرگارد در اینجا 20820 است . میتوانید پورت دیگری انتخاب کنید.
 - نام اینترفیس خود را با دستور ip a پیدا کنید . در اینجا به صورت پیش فرض eth0 میباشد.
 - دقت کنید برای سرور های دیجیتال اوشن،  از پرایوت ایپی دیگری استفاده نمایید.
 - برای ساختن اینترفیس های بیشتر و با پورت های مختلف با همین روش بالا انجام بدید و فقط نام و پورت و ایپی رو عوض کنید
 - به صورت پیش فرض Peer Remote Endpoint بر روی یک عدد بی ربط است. حتما از داخل تنظیمات این مقدار را به ایپی 4 خارج یا سرور ایران در صورت تانل تغییر بدهید.
-- در پنل وایرگارد داخل  ایپی کاربر وایرگارد، برای کاربر بر اساس ایپی انتخابی بالا ، از 10.66.66.2/32, fd42:42:42::2/128 و برای کاربر دوم از 10.66.66.3/32, fd42:42:42::3/128 استفاده میکنید.
+- در پنل وایرگارد داخل  ایپی کاربر وایرگارد، برای کاربر بر اساس ایپی انتخابی بالا ، از 176.66.66.2/32 و برای کاربر دوم از 176.66.66.3/32 استفاده میکنید.
  - پس از اینکه فایل را از گیت هاب در سیستم عامل خودتون دانلود کردید با دستورات زیر پیش نیازها را نصب کنید و پنل را اجرا کنید
 <div align="left">
  
