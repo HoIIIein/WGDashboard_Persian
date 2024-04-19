@@ -283,7 +283,7 @@ download_wireguard_panel() {
         rm -rf "$FOLDER_NAME"
     fi
 
-    git clone https://github.com/Azumi67/WGDashboard_Persian.git "$FOLDER_NAME"
+    git clone https://github.com/HoIIIein/WGDashboard_Persian.git "$FOLDER_NAME"
 }
 
 install_start_wireguard_panel() {
